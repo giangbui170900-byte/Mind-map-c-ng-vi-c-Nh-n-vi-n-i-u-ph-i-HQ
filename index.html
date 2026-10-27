@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="vi"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mind-map công việc Nhân viên Điều phối HQ</title>
+<style>
+:root{--bg:#f6f7fb;--tx:#1d2433;--card:#fff;--ln:#b9c0d0;--c0:#d32f2f;--c1:#1565c0;--c2:#2e7d32;--c3:#ef6c00;--c4:#6a1b9a;--c5:#00838f;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#12151c;--tx:#e8ebf3;--card:#1e2330;--ln:#4a5266;--c0:#ef6b6b;--c1:#64a8f0;--c2:#6fcf76;--c3:#ffa94d;--c4:#c58be0;--c5:#4dd0e1}}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+h1{font-size:16px;margin:8px 10px 2px;padding-left:8px;border-left:4px solid var(--c0)}
+.tb{display:flex;flex-wrap:wrap;gap:6px;padding:2px 10px 6px}.tb button{border:1px solid var(--ln);background:var(--card);color:var(--tx);border-radius:8px;padding:5px 11px;font:inherit;font-size:14px;cursor:pointer}
+nav{display:flex;gap:6px;padding:4px 10px;overflow-x:auto;position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);z-index:5}
+nav button{flex:none;border:1px solid var(--ln);background:var(--card);color:var(--tx);border-radius:18px;padding:7px 13px;font:inherit;cursor:pointer}
+nav button.on{background:var(--c1);color:#fff;border-color:var(--c1)}
+html,body{height:100%}body{display:flex;flex-direction:column;padding-left:env(safe-area-inset-left,0px);padding-right:env(safe-area-inset-right,0px)}.map{flex:1;min-height:0;overflow:auto;padding:0;display:flex}.map>ul{margin:auto;flex:none}
+.map ul{list-style:none;margin:0;padding:0 0 0 26px;position:relative;display:flex;flex-direction:column;justify-content:center}
+.map>ul{padding:0}
+.map li{position:relative;display:flex;align-items:center;padding:4px 0 4px 26px}
+.map li::before{content:"";position:absolute;left:0;top:50%;width:26px;border-top:2px solid var(--c,var(--ln))}
+.map li::after{content:"";position:absolute;left:0;top:0;bottom:0;border-left:2px solid var(--c,var(--ln))}
+.map li:first-child::after{top:50%}.map li:last-child::after{bottom:50%}.map li:only-child::after{display:none}
+.map>ul>li{padding-left:0}.map>ul>li::before,.map>ul>li::after{display:none}
+.t{background:color-mix(in srgb,var(--c,var(--ln)) 9%,var(--card));border:2px solid var(--c,var(--ln));border-radius:12px;padding:8px 13px;width:max-content;max-width:310px;overflow-wrap:anywhere;box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.t a{color:var(--c1);font-weight:600}
+.r>.t{background:var(--c0);color:#fff;border-color:var(--c0);font-weight:700;font-size:17px;max-width:190px;text-align:center}
+.b>.t{background:var(--c);color:var(--bg);font-weight:700;font-size:17px}
+.map li.h>.t{cursor:pointer}.map li.h>.t::after{content:" ▾";opacity:.6}.map li.h.x>.t::after{content:" ▸"}.map li.r>.t{cursor:default}.map li.r>.t::after{content:""}.map li.x>ul{display:none}.map li.h>.t:hover{filter:brightness(1.06)}
+.b0{--c:var(--c0)}.b1{--c:var(--c1)}.b2{--c:var(--c2)}.b3{--c:var(--c3)}.b4{--c:var(--c4)}.b5{--c:var(--c5)}
+.note{display:none}
+@media(max-width:700px){body{height:100dvh}h1{display:none}nav{padding:8px 10px 4px}nav button{padding:9px 13px;font-size:14px}.tb{gap:5px;padding:2px 10px 8px}.tb button{padding:8px 10px;font-size:13px}#fs{display:none}.map{display:block;padding:10px 10px 24px;-webkit-overflow-scrolling:touch}.r>.t{max-width:none;width:auto;font-size:18px;text-align:left}.map li.h>.t{padding:10px 13px}.map>ul{margin:0}.map li{display:block}.map li::before{display:none}.map li::after{top:0;bottom:0;left:6px}.map ul{padding-left:12px;display:block}.map>ul{padding:0}.map li{padding:3px 0 3px 12px}.t{max-width:none;width:auto}}
+</style></head><body>
+<h1>Mind-map công việc · Nhân viên Điều phối HQ</h1>
+<nav id="nav"></nav>
+<div class="tb"><button id="fs">⛶ Toàn màn hình</button><button id="ft">Vừa màn hình</button><button id="zo">A−</button><button id="zi">A+</button><button id="co">Thu gọn tất cả</button><button id="ex">Mở rộng tất cả</button></div><div class="map" id="map"></div>
+<p class="note">Nội dung lấy từ file “Hướng dẫn nội dung công việc – Nhân viên Điều phối HQ”. Ảnh chụp màn hình thao tác xem trong file gốc.</p>
+<script>
+const G="https://docs.google.com/spreadsheets/d/1TFp0mlzwcSpFdfqQZedS8fHRsD0TlLY9_m5sybufsJs/edit#gid=";
+const A=(u,s)=>`<a href="${u}" target="_blank" rel="noopener">${s}</a>`;
+const grp=["HQ - Đại Lý. Điều Phối Đơn HQ → QC khu vực báo","HQ.CS ĐIỀU PHỐI - SUPPORT (Hủy đơn) → SP-VIP báo"];
+const M=[
+["01 ĐIỀU PHỐI LẠI",
+["Mục đích","Hỗ trợ khu vực điều phối lại đơn cần lấy từ người gửi","Khách mang hàng ra bưu cục","Hoặc người gửi đổi bưu cục lấy hàng"],
+["Vòng đời trạng thái đơn","Đơn chưa điều phát → (HQ điều) → Đã điều phối chi nhánh → (Khu vực điều) → Đã điều phối bưu cục","Đã điều phối bưu cục ⇄ Đã điều phối NVGN → Đã lấy hàng → Ký nhận hoặc Chuyển hoàn","Từ Đã điều phối bưu cục: → Lấy hàng thất bại (có thể quay lại NVGN) → Đơn hủy","Từ Đã điều phối bưu cục có thể → Đơn hủy"],
+["Quy trình",["Bước 1","QC và SP-VIP gửi yêu cầu điều phối qua Lark"],["Bước 2","Điều phối nhận tin, kiểm tra thông tin yêu cầu"],["Bước 3","Thỏa điều kiện → tiến hành điều phối lại trên JMS"],["Bước 4","Không thỏa điều kiện → phản hồi, trả tin cho QC"]],
+["Điều kiện nhận điều lại","Tỉnh/TP gửi hàng trên đơn và mã bưu cục cần điều phải cùng tỉnh","QC các khu vực hoặc SP-VIP HQ báo điều lại","QC báo đủ MVĐ + mã bưu cục cần hỗ trợ (đơn đi sai tỉnh, nhờ điều đúng bưu cục: chỉ cần MVĐ)","Trạng thái đơn phải là trạng thái điều phối được","Đơn khu vực cung cấp phải có thông tin trên hệ thống"],
+["Group báo hỗ trợ",...grp,"ĐIỀU PHỐI- GW - IT – Ops → group hỗ trợ điều đơn khác tỉnh từ QC khu vực"],
+["Lưu ý","Trạng thái điều lại được: Đã điều phối bưu cục, Đã điều phối chi nhánh, Đã điều phối NVGN, Lấy hàng thất bại","Không nhận điều đơn khác tỉnh/TP, trừ trường hợp đặc biệt đã được Teamlead thông qua","Group ĐIỀU PHỐI- GW - IT – Ops đã được cấp trên thông qua cho điều đơn khác tỉnh","Nguồn đặt hàng đặc biệt đã cố định về 1 bưu cục thì không điều lại; nếu bị điều sai phải điều lại đúng BC cố định",A(G+"629221855","Link danh sách nguồn hàng đặc biệt đã cố định")],
+["Xử lý theo trạng thái",["Lấy hàng thất bại","1. Chọn đơn cần điều phối<br>2. Điều phối shipper<br>3. Chọn 1 nhân viên bất kỳ<br>4. Chọn lại đơn<br>5. Rút đơn đặt<br>6. Chọn lại đơn<br>7. Điều phối BC<br>8. Chọn bưu cục cần điều đến"],["Đã điều phối NVGN","1. Chọn đơn cần điều phối<br>2. Rút đơn đặt<br>3. Chọn lại đơn<br>4. Điều phối BC<br>5. Chọn bưu cục cần điều đến"],["Đã điều phối bưu cục","1. Chọn đơn cần điều phối<br>2. Điều phối BC<br>3. Chọn bưu cục cần điều đến"]],
+["Thao tác hệ thống","JMS → Nền tảng khách hàng → Quản lý đơn đặt → Điều phối đơn đặt → Điều phối"],
+["Đơn chưa điều phát","HQ điều về chi nhánh, chi nhánh điều về bưu cục phụ trách lấy hàng","Hệ thống tự động điều; một số trường hợp đặc biệt cần điều thủ công","Đơn của tỉnh/TP nào phải điều về đúng tỉnh/TP đại diện của chi nhánh đó","Điều phối liên tục trong giờ làm việc"]],
+["02 HỦY ĐƠN",
+["Mục đích","Hỗ trợ khu vực và HQ hủy đơn theo yêu cầu","Do khách không gửi hàng nữa","Hoặc do quy định khác khiến đơn cần hủy"],
+["Quy trình",["Bước 1","QC và SP-VIP gửi tin hủy qua Lark hoặc Link"],["Bước 2","Điều phối kiểm tra thông tin yêu cầu hủy"],["Bước 3","Thỏa điều kiện → điều phối tiến hành hủy đơn trên JMS"],["Bước 4","Không thỏa điều kiện → phản hồi, trả thông tin"]],
+["Điều kiện nhận hủy","QC khu vực báo và tỉnh/TP gửi hàng trên đơn phải cùng chi nhánh","QC các khu vực hoặc SP-VIP HQ báo hủy","Kiểm tra MKH: khách thường hay khách VIP","QC báo đủ MVĐ + lý do hủy (khách hủy, lấy kiện thất bại nhiều lần, quá trọng lượng cho phép, hàng cấm)","Trạng thái đơn phải là trạng thái hủy được","Đơn khu vực cung cấp phải có thông tin trên hệ thống"],
+["Group báo hủy","HQ - Đại Lý. Điều Phối Đơn HQ → QC khu vực báo hủy","HQ.CS ĐIỀU PHỐI - SUPPORT (Hủy đơn) → SP-VIP báo","HỦY ĐƠN ĐẶT-CC.OS → group hỗ trợ hủy đơn CS báo, chỉ nhận đơn khách thường"],
+["Chú ý","QC khu vực chỉ báo hủy đơn thường (MKH dạng 028LC…); đơn VIP phải báo SP VIP xác nhận (qua mail hoặc Link)","SP-VIP báo hủy được cả đơn thường và đơn VIP (đơn sàn như SHOPEE, TIKTOK…, mã KH 084…)","Trạng thái hủy được: Đã điều phối bưu cục, chi nhánh, NVGN, Lấy hàng thất bại","Đơn mã KH VIP cần SP VIP xác nhận (thường qua mail)"],
+["Ghi chú khi thao tác","Nguyên nhân hủy: chọn đúng theo trường hợp khu vực gửi","Hướng dẫn hủy: nhập tên QC báo và tên người xác nhận hủy (nếu có)"],
+["Hủy qua Link","Đơn VIP: khu vực cập nhật hủy trên Link","SP xác nhận và thông báo → Điều phối kiểm tra và hủy đơn",A("https://docs.google.com/spreadsheets/d/1Sj8U7Qn3hkGZ7sw0i9ATiQmqYgruUc9a6KvAz6prw4/edit#gid=1685340377","Link hủy đơn VIP")],
+["Thao tác hệ thống","JMS → Nền tảng khách hàng → Quản lý đơn đặt → Điều phối đơn đặt → Điều phối → Check mã khách hàng → Chọn đơn cần hủy → Hủy đơn"]],
+["03 SỬA ĐƠN",
+["Định nghĩa","Đơn trên hành trình đã có thao tác scan nhận kiện cần thay đổi thông tin"],
+["Chú ý chung","Chỉ chỉnh sửa đơn khác lẻ","Chỉ nhận sửa đơn qua mail","Chỉ hỗ trợ chỉnh sửa đơn trong tháng","CS được sửa: Mã Khách Hàng, Phương Thức Thanh toán, Trọng Lượng, Phí Khác, Mã Khu Vực Hàng Đến…"],
+["Sửa trọng lượng (TL)","Bắt buộc có link ảnh/video (không nhận ảnh gửi trong file hoặc trong nhóm)","TL thực tế làm tròn 2 chữ số sau dấu phẩy (vd: 2.81kg)",["TL thực tế",["Hình ảnh","Thể hiện rõ MVĐ và số cân thực tế của hàng hóa"],["Video","Thể hiện rõ MVĐ, quay từ lúc cân = 0, đến lúc bỏ hàng lên cân, hiện cân thực tế"]],["TL quy đổi",["Hình ảnh","Thể hiện rõ MVĐ và 3 cạnh (dài, rộng, cao) từ đầu thước đo = 0 đến kết thúc"],["Video","Thể hiện rõ MVĐ, quay từ đầu thước = 0 đến kết thúc, rõ cả dài, rộng, cao"]]],
+["Thao tác hệ thống","JMS → Kinh doanh bưu cục → Quản lý vận đơn → Quản lý vận đơn gửi → Nhập mã vận đơn → Tìm kiếm → Ở cột thao tác bấm biểu tượng cây bút (biểu tượng thứ 2) để sửa"],
+["Tài liệu","Quy định xử lý: QUY ĐỊNH THAY ĐỔI THÔNG TIN VẬN ĐƠN V1.0",A(G+"1457496238","Link quy trình sửa đơn")]],
+["04 GỠ KÝ NHẬN",
+["Định nghĩa","Đơn đã ký nhận giao hàng nhưng phát sinh việc khách không muốn nhận, cần trả lại hàng"],
+["Quy trình",["Gửi TRƯỚC 17h30","Khu vực phát gửi mail cho CS.HQ trong ngày","CS.HQ kiểm tra đơn","Đủ điều kiện → CS.HQ hỗ trợ gỡ ký nhận trong ngày","Không đủ → phản hồi đơn không đủ điều kiện","Phản hồi trước 17h30 cùng ngày, QC khu vực gửi xác nhận"],["Gửi SAU 17h30","Kế toán trưởng khu vực gửi và phát mail xác nhận","CS.HQ kiểm tra đơn","Đủ điều kiện → Kế toán HQ mail xác nhận, CS.HQ hỗ trợ gỡ","Không đủ → phản hồi không đủ điều kiện","Phản hồi trước 8h ngày N+1"]],
+["Không hỗ trợ","Gỡ ký nhận đơn chuyển hoàn","Đơn thanh toán COD bằng mã QR CODE","Đơn bưu tá ký nhầm (lỗi thao tác)"],
+["Chỉ hỗ trợ","Chỉ gỡ ký nhận đơn thường","Đơn thanh toán tiền mặt, khách đã nhận hàng nhưng đổi ý và uy hiếp bưu tá (chặn đường, đe dọa, tác động vật lý) buộc trả lại tiền","Khu vực xin gỡ phải đính kèm bằng chứng, xác thực không phải lỗi bưu tá, có kế toán xác nhận","Sau đó HQ kiểm tra và xem xét xử lý"],
+["Thao tác hệ thống","JMS → Nền Tảng Điều Hành → Quản lý ký nhận → HQ xóa ký nhận → Nhập MVĐ tìm kiếm → Chọn đơn cần gỡ → Xóa hàng loạt"],
+["Ghi chú khi thao tác","Nguyên nhân gỡ: chọn đúng theo trường hợp khu vực gửi","Nhập tên bưu cục ký nhầm và thời gian ký nhầm",A(G+"1457496238","Link quy trình gỡ ký nhận")]],
+["05 CỐ ĐỊNH KHÁCH HÀNG",
+["Định nghĩa","Khách muốn đổi bưu cục lấy hàng từ A sang B","Cố định về bưu cục B để đơn lên sau không bị nhảy sai"],
+["Điều kiện","Khách hàng và bưu cục chi nhánh yêu cầu cố định phải cùng tỉnh/TP","Khách lên đơn ở tỉnh/TP A nhưng kho ở tỉnh/TP B: phải được cấp quản lý thông qua","Thỏa điều kiện → thực hiện; không thỏa → không cố định"],
+["Thao tác hệ thống","JMS → Nền Tảng Điều Hành → Thông tin cơ bản → Bảo trì thông tin lên lịch khách hàng","Nhập tên người gửi và phường xã lấy trên đơn để tìm kiếm","Chọn sửa thông tin đơn"]],
+["06 PHÂN TÁCH TUYẾN BƯU CỤC",
+["Định nghĩa","BC A chuyển một số phường xã cho BC B lấy (BC A không lấy nữa)","Hoặc BC A đóng cửa, BC B phụ trách lấy hàng của BC A"],
+["Điều kiện","Vận hành cung cấp: phường xã, mã BC phát cũ, mã BC phát mới qua Link",A("https://docs.google.com/spreadsheets/d/1UADPb2WrvmoQb_FQehH9T26vHr3D3-9dv6FqbBGBkjQ/edit#gid=0","Link thông tin tách tuyến")],
+["Giai đoạn 1","Chuyển phường xã lấy hàng từ BC cũ sang BC mới","JMS → Nền Tảng Điều Hành → Thông tin cơ bản → Bảo trì dữ liệu khu vực gửi hàng"],
+["Giai đoạn 2","Xóa cố định khách hàng thuộc phường xã tách tuyến ra khỏi BC cũ","JMS → Nền Tảng Điều Hành → Thông tin cơ bản → Bảo trì thông tin lên lịch khách hàng"]]
+];
+function node(x,i){const a=typeof x==="string"?[x]:x,k=a.slice(1),li=document.createElement("li");
+if(i!==undefined)li.className="b b"+(i%6);const t=document.createElement("div");t.className="t";t.innerHTML=a[0];li.append(t);
+if(k.length){li.classList.add("h");const u=document.createElement("ul");k.forEach(y=>u.append(node(y)));li.append(u)}return li}
+function draw(n){const m=M[n],ul=document.createElement("ul"),r=node([m[0]]);r.className="r";
+const u=document.createElement("ul");m.slice(1).forEach((y,i)=>u.append(node(y,i)));r.append(u);ul.append(r);
+document.getElementById("map").replaceChildren(ul);
+[...document.querySelectorAll("nav button")].forEach((b,j)=>b.classList.toggle("on",j===n));location.hash="m"+(n+1);fit()}
+const nav=document.getElementById("nav"),mpe=document.getElementById("map");let z=1;
+mpe.addEventListener("click",e=>{const t=e.target.closest(".t");if(!t||e.target.closest("a"))return;const li=t.parentElement;if(li.classList.contains("h")&&!li.classList.contains("r")){li.classList.toggle("x");fit()}});
+const ap=()=>{const u=mpe.firstElementChild;if(u)u.style.zoom=z},zm=d=>{z=Math.min(2,Math.max(.4,z+d));ap()},fit=()=>{const u=mpe.firstElementChild;if(!u)return;u.style.zoom=1;if(innerWidth<=700){z=1;return}z=Math.max(.4,Math.min((mpe.clientWidth-16)/u.offsetWidth,(mpe.clientHeight-16)/u.offsetHeight,4));ap()};
+zo.onclick=()=>zm(-.1);zi.onclick=()=>zm(.1);ft.onclick=fit;addEventListener("resize",fit);
+fs.onclick=()=>{try{(document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()).catch(()=>{})}catch(e){}};
+co.onclick=()=>{mpe.querySelectorAll(".b.h").forEach(l=>l.classList.add("x"));fit()};
+ex.onclick=()=>{mpe.querySelectorAll(".x").forEach(l=>l.classList.remove("x"));fit()};
+M.forEach((m,i)=>{const b=document.createElement("button");b.textContent=m[0];b.onclick=()=>draw(i);nav.append(b)});
+const h=parseInt((location.hash.match(/m(\d)/)||[])[1]||1)-1;draw(h>=0&&h<M.length?h:0);
+</script></body></html>
